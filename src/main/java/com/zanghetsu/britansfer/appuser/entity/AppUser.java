@@ -8,7 +8,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Collections;
@@ -21,13 +21,17 @@ import java.util.UUID;
 public class AppUser implements UserDetails {
 
 
-    private UUID id;
+    @SequenceGenerator(name ="appUser_generator", sequenceName = "appUser_sequence", allocationSize = 1, initialValue = 1)
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "appUser_generator")
+    private Long id;
     private String userName;
     private String firstName;
     private String lastName;
     private String email;
     private LocalDateTime dateOfBirth;
     private String password;
+    @Enumerated(EnumType.STRING)
     private UserRole appUserRole;
     private Boolean locked;
     private Boolean enabled;
