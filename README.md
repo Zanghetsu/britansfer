@@ -36,4 +36,5 @@ The application's back-end is built with spring boot, implementing the following
 
 ---
 
-This project idea was brought to you by Tradebrite Ltd. bestowing the specifications on me to deliver the most of it I can at my current level of experties.
+This project idea was brought to you by Tradebrite Ltd. bestowing the specifications on me to deliver the most of it I can at my current level of experties.<br>
+The UML diagram is yet to be presented.
