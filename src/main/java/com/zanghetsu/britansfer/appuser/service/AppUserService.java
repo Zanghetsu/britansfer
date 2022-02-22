@@ -47,6 +47,9 @@ public class AppUserService implements UserDetailsService {
 
         //TODO:SEND EMAIL
 
-        return "it gone trough";
+        return token;
+    }
+    public void enableAppUser(String email) {
+        appUserRepository.enableAppUser(email);
     }
 }
