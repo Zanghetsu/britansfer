@@ -12,6 +12,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Date;
 
 @Entity
 @Getter
@@ -29,23 +30,25 @@ public class AppUser implements UserDetails {
     private String firstName;
     private String lastName;
     private String email;
-    private LocalDateTime dateOfBirth;
+    private Date dateOfBirth;
     private String password;
     @Enumerated(EnumType.STRING)
     private UserRole appUserRole;
     private Boolean locked;
     private Boolean enabled;
 
-    public AppUser(String userName, String firstName, String lastName, String email, LocalDateTime dateOfBirth, String password, UserRole appUserRole, Boolean locked, Boolean enabled) {
+    public AppUser(String userName, String firstName, String lastName, String email, Date dateOfBirth, String password, UserRole appUserRole, Boolean locked, Boolean enabled) {
         this.userName = userName;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.dateOfBirth = dateOfBirth;
         this.password = password;
-        this.appUserRole = appUserRole;
+        this.appUserRole = appUserRole; //TODO:implement authorization
         this.locked = locked;
         this.enabled = enabled;
+
+        //TODO:Implement bank accounts collection and requirements
     }
 
     @Override
