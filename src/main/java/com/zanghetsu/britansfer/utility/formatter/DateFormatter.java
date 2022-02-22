@@ -1,4 +1,4 @@
-package com.zanghetsu.britansfer.utility;
+package com.zanghetsu.britansfer.utility.formatter;
 
 import org.springframework.stereotype.Service;
 

@@ -3,17 +3,13 @@ package com.zanghetsu.britansfer.registration.service;
 import com.zanghetsu.britansfer.appuser.entity.AppUser;
 import com.zanghetsu.britansfer.appuser.entity.UserRole;
 import com.zanghetsu.britansfer.appuser.service.AppUserService;
-import com.zanghetsu.britansfer.email.EmailValidator;
+import com.zanghetsu.britansfer.utility.email.EmailValidator;
 import com.zanghetsu.britansfer.registration.entity.RegistrationRequest;
 import com.zanghetsu.britansfer.security.encrypter.PasswordEncrypter;
-import com.zanghetsu.britansfer.utility.DateFormatter;
+import com.zanghetsu.britansfer.utility.formatter.DateFormatter;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 @Service

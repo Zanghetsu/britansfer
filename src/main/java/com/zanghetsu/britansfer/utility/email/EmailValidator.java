@@ -1,4 +1,4 @@
-package com.zanghetsu.britansfer.email;
+package com.zanghetsu.britansfer.utility.email;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
