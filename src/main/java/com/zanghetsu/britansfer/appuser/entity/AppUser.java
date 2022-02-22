@@ -11,12 +11,14 @@ import java.util.UUID;
 public class AppUser implements UserDetails {
 
     private UUID id;
+    private String userName;
     private String firstName;
     private String lastName;
     private String email;
     private String password;
     private UserRole appUserRole;
-    private Boolean activated;
+    private Boolean locked;
+    private Boolean enabled;
 
 
 
@@ -28,31 +30,31 @@ public class AppUser implements UserDetails {
 
     @Override
     public String getPassword() {
-        return null;
+        return password;
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return userName;
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return !locked;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return enabled;
     }
 }
