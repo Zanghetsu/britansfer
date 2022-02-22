@@ -3,11 +3,17 @@ package com.zanghetsu.britansfer.appuser.service;
 import com.zanghetsu.britansfer.appuser.entity.AppUser;
 import com.zanghetsu.britansfer.appuser.repository.AppUserRepository;
 import com.zanghetsu.britansfer.security.encrypter.PasswordEncrypter;
+import com.zanghetsu.britansfer.utility.token.entity.ConfirmationToken;
+import com.zanghetsu.britansfer.utility.token.service.TokenService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Service
 @AllArgsConstructor
@@ -15,6 +21,7 @@ public class AppUserService implements UserDetailsService {
 
     private static final String USER_NOT_FOUND_MSG = "User with name %s not found!";
     private final AppUserRepository appUserRepository;
+    private final TokenService tokenservice;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -29,7 +36,20 @@ public class AppUserService implements UserDetailsService {
         }
         appUserRepository.save(appUser);
 
-        //TODO:send confirmation token
-            return "it gone trough";
+        String token = UUID.randomUUID().toString();
+        ConfirmationToken confirmationToken = new ConfirmationToken(
+                token,
+                LocalDateTime.now(),
+                LocalDateTime.now().plusMinutes(15),
+                appUser
+        );
+        tokenservice.saveConfirmationToken(confirmationToken);
+
+        //TODO:SEND EMAIL
+
+        return token;
+    }
+    public void enableAppUser(String email) {
+        appUserRepository.enableAppUser(email);
     }
 }
