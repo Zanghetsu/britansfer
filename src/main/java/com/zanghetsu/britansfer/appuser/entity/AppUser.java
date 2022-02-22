@@ -12,8 +12,8 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.UUID;
 
+@Entity
 @Getter
 @Setter
 @EqualsAndHashCode
@@ -21,9 +21,9 @@ import java.util.UUID;
 public class AppUser implements UserDetails {
 
 
-    @SequenceGenerator(name ="appUser_generator", sequenceName = "appUser_sequence", allocationSize = 1, initialValue = 1)
+    @SequenceGenerator(name ="appUser_sequence", sequenceName = "appUser_sequence", allocationSize = 1)
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "appUser_generator")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "appUser_sequence")
     private Long id;
     private String userName;
     private String firstName;
