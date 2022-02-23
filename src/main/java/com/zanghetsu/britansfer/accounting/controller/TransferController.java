@@ -20,7 +20,7 @@ public class TransferController {
     @PostMapping(path = "deposit")
     public String depositToAccount(@RequestBody TransferRequest request){
         if(transferService.makeDeposit(request.getAccountNumber1(), BigDecimal.valueOf(request.getAmount()))){
-            return "Succesful Deposti!";
+            return "Successful Deposit!";
         }
         return "Deposit did not happen";
     }
@@ -28,15 +28,15 @@ public class TransferController {
     @PostMapping(path = "withdraw")
     public String withdrawFromAccount(@RequestBody TransferRequest request){
         if(transferService.makeWithdraw(request.getAccountNumber1(),BigDecimal.valueOf(request.getAmount()))){
-            return "Succesful Withdraw";
+            return "Successful Withdraw";
         }
         return "Withdraw cannot be made, due to lack of balance!";
     }
 
     @PostMapping(path = "wiretransfer")
-    public String wireTransfare(@RequestBody TransferRequest request){
+    public String wireTransfer(@RequestBody TransferRequest request){
         if(transferService.makeTransfer(request.getAccountNumber1(),request.getAccountNumber2(),BigDecimal.valueOf(request.getAmount()))){
-            return "Succesful transfer!";
+            return "Successful transfer!";
         }
         return "Transaction canceled, not enough balance to make transfer!";
     }
