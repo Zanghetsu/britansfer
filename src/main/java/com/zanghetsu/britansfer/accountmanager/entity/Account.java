@@ -11,6 +11,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -27,14 +28,14 @@ public class Account {
     @NotNull
     private String accountNumber;
     private BigDecimal balance;
-    private Date dateOfRegistry;
+    private LocalDateTime dateOfRegistry;
     private CurrencyType currencyType;
 
     @ManyToOne
     @JoinColumn(nullable = false,name = "app_user_id")
     private AppUser appUser;
 
-    public Account(String accountNumber, BigDecimal balance, Date dateOfRegistry, CurrencyType currencyType, AppUser appUser) {
+    public Account(String accountNumber, BigDecimal balance, LocalDateTime dateOfRegistry, CurrencyType currencyType, AppUser appUser) {
         this.accountNumber = accountNumber;
         this.balance = balance;
         this.dateOfRegistry = dateOfRegistry;
