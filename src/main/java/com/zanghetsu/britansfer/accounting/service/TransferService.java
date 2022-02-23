@@ -5,6 +5,7 @@ import com.zanghetsu.britansfer.accounting.entity.TransferType;
 import com.zanghetsu.britansfer.accounting.repository.AccountingRepository;
 import com.zanghetsu.britansfer.accountmanager.entity.Account;
 import com.zanghetsu.britansfer.accountmanager.service.AccountService;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,6 +13,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Service
+@AllArgsConstructor
 public class TransferService {
 
     private AccountingRepository repository;

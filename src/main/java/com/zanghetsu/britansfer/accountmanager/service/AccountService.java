@@ -9,8 +9,6 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.UUID;
 
 @Service
@@ -50,13 +48,14 @@ public class AccountService {
         throw new IllegalStateException("There is no account with this number!");
     }
 
+    /*
     public Set<Account> getAccountsForUser(AppUser appUser) {
         Set<Account> accounts = new HashSet<>();
         if (repository.findAccountByUserID(appUser.getId()).isPresent()) {
             accounts.addAll(repository.getAllAccount(appUser.getId()));
         }
         return accounts;
-    }
+    }*/
 
     public boolean checkBalance(Account account) {
         return getBalance(account).compareTo(BigDecimal.ZERO) > 0;
@@ -68,8 +67,9 @@ public class AccountService {
 
 
     public Account getAccountByAccountNumber(String accountNumber) {
-        Account account;
-        if( getAccountByAccountNumber(accountNumber))
-
+        if (repository.findAccountByAccountNumber(accountNumber).isPresent()) {
+            return getAccountByAccountNumber(accountNumber);
+        }
+        throw new IllegalStateException("Account Not Found!");
     }
 }
