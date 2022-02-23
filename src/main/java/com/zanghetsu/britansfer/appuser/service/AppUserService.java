@@ -1,5 +1,6 @@
 package com.zanghetsu.britansfer.appuser.service;
 
+import com.zanghetsu.britansfer.accountmanager.service.AccountService;
 import com.zanghetsu.britansfer.appuser.entity.AppUser;
 import com.zanghetsu.britansfer.appuser.repository.AppUserRepository;
 import com.zanghetsu.britansfer.utility.token.entity.ConfirmationToken;
@@ -21,6 +22,7 @@ public class AppUserService implements UserDetailsService {
     private static final String USER_NOT_FOUND_MSG = "User with name %s not found!";
     private final AppUserRepository appUserRepository;
     private final TokenService tokenservice;
+    private final AccountService accountService;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -34,6 +36,7 @@ public class AppUserService implements UserDetailsService {
            throw new IllegalStateException("this username is already taken!");
         }
         appUserRepository.save(appUser);
+        accountService.generateAccount(appUser);
 
         String token = UUID.randomUUID().toString();
         ConfirmationToken confirmationToken = new ConfirmationToken(
