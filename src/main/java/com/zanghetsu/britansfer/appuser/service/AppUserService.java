@@ -2,7 +2,6 @@ package com.zanghetsu.britansfer.appuser.service;
 
 import com.zanghetsu.britansfer.appuser.entity.AppUser;
 import com.zanghetsu.britansfer.appuser.repository.AppUserRepository;
-import com.zanghetsu.britansfer.security.encrypter.PasswordEncrypter;
 import com.zanghetsu.britansfer.utility.token.entity.ConfirmationToken;
 import com.zanghetsu.britansfer.utility.token.service.TokenService;
 import lombok.AllArgsConstructor;
@@ -10,7 +9,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
