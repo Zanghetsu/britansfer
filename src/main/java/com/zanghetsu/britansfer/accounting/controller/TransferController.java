@@ -24,7 +24,7 @@ public class TransferController {
         if(transferService.makeDeposit(request.getAccountNumber1(), BigDecimal.valueOf(request.getAmount()))){
             return "Successful Deposit!";
         }
-        return "Deposit did not happen";
+        return "Deposit did not happen, check valid deposit amount and account number!";
     }
 
     @PostMapping(path = "withdraw")
@@ -32,7 +32,7 @@ public class TransferController {
         if(transferService.makeWithdraw(request.getAccountNumber1(),BigDecimal.valueOf(request.getAmount()))){
             return "Successful Withdraw";
         }
-        return "Withdraw cannot be made, due to lack of balance!";
+        return "Withdraw cannot be made, due to lack of balance or invalid amount request!";
     }
 
     @PostMapping(path = "wiretransfer")
@@ -40,7 +40,7 @@ public class TransferController {
         if(transferService.makeTransfer(request.getAccountNumber1(),request.getAccountNumber2(),BigDecimal.valueOf(request.getAmount()))){
             return "Successful transfer!";
         }
-        return "Transaction canceled, not enough balance to make transfer!";
+        return "Transaction canceled, not enough balance to make transfer, or invalid amount was given!";
     }
 
     @GetMapping(path = "balance-info")

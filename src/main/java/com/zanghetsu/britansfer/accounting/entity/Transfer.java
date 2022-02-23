@@ -19,7 +19,7 @@ public class Transfer {
     @SequenceGenerator(name = "transfer_sequence", sequenceName = "transfer_sequence",allocationSize = 1)
     @Id
     @GeneratedValue(generator = "transfer_sequence",strategy = GenerationType.SEQUENCE)
-    private UUID id;
+    private Long id;
     private LocalDateTime dateOfTransfer;
     private TransferType transferType;
     private String transferingAccountNumber;
