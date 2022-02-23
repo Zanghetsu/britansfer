@@ -33,7 +33,7 @@ public class AccountService {
 
     public void generateAccount(AppUser appUser) {
         String accountNumber = generateNewAccountNumber();
-        while (!checkIfAccountNumberTaken(accountNumber)) {
+        if (!checkIfAccountNumberTaken(accountNumber)) {
             accountNumber = generateNewAccountNumber();
         }
         Account account = new Account(accountNumber, BigDecimal.valueOf(0.0), LocalDateTime.now(), CurrencyType.HUF, appUser);
