@@ -3,6 +3,7 @@ package com.zanghetsu.britansfer.accounting.controller;
 
 import com.zanghetsu.britansfer.accounting.controller.transferRequest.TransferRequest;
 import com.zanghetsu.britansfer.accounting.service.TransferService;
+import com.zanghetsu.britansfer.accountmanager.entity.Account;
 import com.zanghetsu.britansfer.accountmanager.service.AccountService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -42,6 +43,9 @@ public class TransferController {
     }
 
     @GetMapping(path = "balance-info")
-    public String getAccountBalance()
+    public String getAccountBalance(@RequestBody TransferRequest request){
+        Account account = accountService.getAccountByAccountNumber(request.getAccountNumber1());
+        return accountService.getBalance(account).toString();
+    }
 
 }
