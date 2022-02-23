@@ -69,17 +69,4 @@ public class TransferService {
         }
         return false;
     }
-
-    /*
-    //All should be transactional , maybe need user will turn out
-    //Account managing capabilities later extracted into Bankmanager service:
-
-    public Set<Transfer> listTransfers(){}   // by : date, period, intervall, type, currency, userID
-
-    private BigDecimal bankBalance(){} // shows how much cash does Uncle Daughobert have
-
-     private BigDecimal calculateExchangeRate(){} //--> via external api
-
-    //maybe clash flow etc...
-    */
 }

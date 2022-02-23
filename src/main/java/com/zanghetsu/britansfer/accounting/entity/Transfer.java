@@ -6,7 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.UUID;
+
 
 
 @Entity
@@ -32,6 +32,4 @@ public class Transfer {
         this.rescievingAccountNumber = rescievingAccountNumber;
     }
 
-    // exchange or not, yet to be implemented
-    // basic transactionfee, yet to be implemented
 }

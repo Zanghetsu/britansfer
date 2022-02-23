@@ -21,7 +21,6 @@ public class AccountService {
         return UUID.randomUUID().toString();
     }
 
-    // maybe removable in the long run
     private boolean checkIfAccountExists(Account account) {
         return repository.findAccountByAccountNumber(account.getAccountNumber()).isPresent();
     }
@@ -48,22 +47,13 @@ public class AccountService {
         throw new IllegalStateException("There is no account with this number!");
     }
 
-    /*
-    public Set<Account> getAccountsForUser(AppUser appUser) {
-        Set<Account> accounts = new HashSet<>();
-        if (repository.findAccountByUserID(appUser.getId()).isPresent()) {
-            accounts.addAll(repository.getAllAccount(appUser.getId()));
-        }
-        return accounts;
-    }*/
-
     public boolean checkBalance(Account account) {
         return getBalance(account).compareTo(BigDecimal.ZERO) > 0;
-    } // --> currency types??
+    }
 
     public void updateBalance(Account account, BigDecimal amount) {
         repository.updateBalance(account.getAccountNumber(), amount);
-    }  //---> deposit types to be enumerated??
+    }
 
 
     public Account getAccountByAccountNumber(String accountNumber) {

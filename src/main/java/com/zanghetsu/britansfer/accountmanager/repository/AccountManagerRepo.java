@@ -19,13 +19,6 @@ public interface AccountManagerRepo extends JpaRepository<Account,Long> {
     Optional<Account> findAccountByAccountNumber(String accountNumber);
 
 
-    /*
-    @Query("WHERE a.app_user_id like ?1")
-    List<Account> getAllAccount(Long id);
-
-    Optional<Account> findAccountByUserID(Long userId);
-     */
-
     @Transactional
     @Modifying
     @Query("UPDATE Account  a SET a.balance = ?2 WHERE a.accountNumber = ?1")
