@@ -9,5 +9,6 @@ import lombok.*;
 public class TransferRequest {
     private final String accountNumber1;
     private final String accountNumber2;
-    private final int amount;
+    private final Double amount;
+
 }

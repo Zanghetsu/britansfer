@@ -68,7 +68,7 @@ public class AccountService {
 
     public Account getAccountByAccountNumber(String accountNumber) {
         if (repository.findAccountByAccountNumber(accountNumber).isPresent()) {
-            return getAccountByAccountNumber(accountNumber);
+                return repository.getAccountByAccountNumber(accountNumber).orElseThrow(() -> new RuntimeException("Account not found!"));
         }
         throw new IllegalStateException("Account Not Found!");
     }
