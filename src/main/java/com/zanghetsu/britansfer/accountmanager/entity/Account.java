@@ -2,17 +2,14 @@ package com.zanghetsu.britansfer.accountmanager.entity;
 
 import com.sun.istack.NotNull;
 import com.zanghetsu.britansfer.appuser.entity.AppUser;
-import com.zanghetsu.britansfer.appuser.service.AppUserService;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.Date;
+
 
 @Entity
 @NoArgsConstructor
