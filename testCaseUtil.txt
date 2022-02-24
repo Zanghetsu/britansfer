@@ -1,0 +1,58 @@
+Registration with Postman:
+
+Path = localhost:8080/api/v1/registration/
+Method = POST
+User_1.json:
+
+{
+    "userName":"Zanghetsu",
+    "firstName":"Memphis",
+    "lastName":"Rayns",
+    "email":"gonein60seconds@eleanor.com",
+    "dateOfBirth":"2000-01-01",
+    "password":"password"
+}
+
+(field to save token)
+
+token1:
+
+
+Path = localhost:8080/api/v1/registration/confirm?token=
+
+Method = GET
+
+
+
+Path = localhost:8080/api/v1/registration/
+Method = POST
+
+User_2.json:
+{
+    "userName":"TradeBrite",
+    "firstName":"Trade",
+    "lastName":"Brite",
+    "email":"TradeBrite@tradebrite.com",
+    "dateOfBirth":"2019-01-01",
+    "password":"password"
+}
+
+(field to save token)
+
+token2:
+
+
+Path = localhost:8080/api/v1/registration/confirm?token=
+Method = GET
+
+
+Path = various transaction paths are retrivable from the TransferController class
+Mehtod: PUT (Always!)
+Transfer JSNON format:
+
+{
+	"sourceAccount":"     "    <- account number here
+	"targetAccount":"     "    <- target account number here
+	"amount" :                 <- transfer amount here (WARNING : it accepts the type of double! like: 1230.23)
+}
+ 
