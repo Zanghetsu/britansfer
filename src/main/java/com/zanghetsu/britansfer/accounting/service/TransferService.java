@@ -52,9 +52,9 @@ public class TransferService {
     }
 
     @Transactional
-    public boolean makeTransfer(String accountNumber1, String accountNumber2, BigDecimal amount) { //--> can be account number instead
-        Account transfAccount = accountService.getAccountByAccountNumber(accountNumber1);
-        Account rescvAccount = accountService.getAccountByAccountNumber(accountNumber2);
+    public boolean makeTransfer(String sourceAccount, String targetAccount, BigDecimal amount) { //--> can be account number instead
+        Account transfAccount = accountService.getAccountByAccountNumber(sourceAccount);
+        Account rescvAccount = accountService.getAccountByAccountNumber(targetAccount);
 
         if(checkAmount(amount)){
             if (accountService.checkBalance(transfAccount)) {
